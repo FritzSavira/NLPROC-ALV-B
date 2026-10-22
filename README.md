@@ -53,7 +53,7 @@ Prüfungsrelevant sind alle Themen aus Vorlesung und Übung, auch Inhalte, die n
 └── assignment-XX/           Übungsblatt, Materialien und Lösungen je Übung
 ```
 
-Große Programmdateien (z. B. Praat) sind nicht eingecheckt, siehe `.gitignore`.
+Praat-Verzeichnisse (Programm und Schriften) sind nicht eingecheckt, siehe `.gitignore`.
 
 ## Werkzeuge
 
