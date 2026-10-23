@@ -21,18 +21,6 @@ Die Veranstaltung gibt einen Überblick über die zentralen Herausforderungen de
 - Informationsextraktion und Named Entity Recognition
 - Relationsextraktion und Semantic Role Labeling
 
-## Organisation
-
-| | |
-|---|---|
-| Vorlesung | dienstags 16–18 Uhr, WE5/04.003 |
-| Übung / Fragestunde | donnerstags 10–12 Uhr, GU13/01.03 |
-| Sprache | Deutsch (Englisch auf Anfrage), Folien auf Englisch |
-| Kursplattform | Virtueller Campus (VC) |
-| Prüfung | schriftliche Klausur (60 Minuten) nach Semesterende |
-
-Prüfungsrelevant sind alle Themen aus Vorlesung und Übung, auch Inhalte, die nur auf den Übungsblättern vorkommen.
-
 ## Übungen
 
 - Kurz nach jeder Vorlesung erscheint ein Übungsblatt mit Pen-&-Paper- und Programmieraufgaben.
@@ -54,11 +42,6 @@ Prüfungsrelevant sind alle Themen aus Vorlesung und Übung, auch Inhalte, die n
 ```
 
 Praat-Verzeichnisse (Programm und Schriften) sind nicht eingecheckt, siehe `.gitignore`.
-
-## Werkzeuge
-
-- [Praat](https://praat.org/) – Analyse von Sprachaufnahmen (Wellenform, Spektrogramm, Formanten)
-- Python mit NLP-Bibliotheken für die Programmieraufgaben
 
 ## Literatur
 
