@@ -5,10 +5,10 @@
 # aus denen die Worte zusammengesetzt werden. Betonungen werden durch die Indizes
 # 0=Ohne Betonung, 1=primäre Betonung, 2=sekundäre Betonung abgebildet.
 # Das CMU Pronouncing Dictionary nutzt das ARPABET https://en.wikipedia.org/wiki/ARPABET,
-# ein set phonetischer Transkriptions-Codes, die in den 1970er Jahren von
+# ein Set phonetischer Transkriptions-Codes, die in den 1970er Jahren von
 # der Advanced Research Projects Agency (ARPA) entwickelt wurde.
 
-# Pronounciation of "Peter but the blue book ..."
+# Pronounciation of "Peter put the blue book ..."
 import pronouncing
 
 sentence = ["Peter", "put", "the", "blue", "book", "beside", "the", "big", "window"]
