@@ -20,6 +20,6 @@ for word in sentence:
 # The Chaos was taken from: https://ncf.idallen.com/english.html
 
 with open("the-chaos.txt", "r", encoding="utf-8") as file:
-    text = file.read
-    print(text)
+    for line in file:
+        print(line)
 
