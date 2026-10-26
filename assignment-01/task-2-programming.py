@@ -60,7 +60,7 @@ def get_nucleus_and_coda(word: str) -> tuple[str, list[str]]:
     return nucleus, coda
 
 
-def is_slant_rhyme(word1, word2):
+def is_slant_rhyme(word1, word2) -> tuple[bool, str, list[str], str, list[str]]:
     # unsere Regel für slant Reim: gleicher Nucleus und unterschiedliche Coda
     # oder unterschiedlicher Nukleus und gleiche Coda
     nucleus1, coda1 = get_nucleus_and_coda(word1)
@@ -70,13 +70,15 @@ def is_slant_rhyme(word1, word2):
     if nucleus1 is None or nucleus2 is None:
         return False
 
-    return ((nucleus1 == nucleus2 and coda1 != coda2) or 
+    is_slant = ((nucleus1 == nucleus2 and coda1 != coda2) or 
             (nucleus1 != nucleus2 and coda1 == coda2))
+    
+    return is_slant, nucleus1, coda1, nucleus2, coda2
 
 word1 = ""                                              # Ablage wort1 initiieren
 word2 = ""                                              # Ablage wort2 initiieren
 # eigenen lokalen Pfad in input_file eintragen oder hier direkt im NLPROC Ordner
-input_file = "the-chaos.txt"
+input_file = "assignment-01\\the-chaos.txt"
 with open(input_file, "r", encoding="utf-8") as file:
     for line in file:
         if len(line) > 1:                               # Leerzeilen überspringen
