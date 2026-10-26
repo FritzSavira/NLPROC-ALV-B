@@ -1,4 +1,6 @@
-# Unterschied CMU Pronouncing Dictionary vesrus IPS:
+# Task 2 - Programming
+
+# Task 2.1 Unterschied CMU Pronouncing Dictionary versus IPS:
 # Bei dem CMU Pronouncing Dictionary http://www.speech.cs.cmu.edu/cgi-bin/cmudict
 # unterscheidet sich die Codierung der Phoneme im wesentlichen dadurch von dem 
 # IPA-System, dass Großbuchstaben des lateinischen Alphabets verwendet werden. 
@@ -13,15 +15,16 @@
 # Agency (ARPA) entwickelt wurde.
 # Bsp: CMU big - B IH1 G, IPA /bɪg/
 
+# Task 2.2 Load pronouncing library 
 import pronouncing
 
-# looking up pronounciation of "Peter put the blue book ..."
+# Task 2.3 Looking up pronounciation of "Peter put the blue book ..."
 sentence = ["Peter", "put", "the", "blue", "book", "beside", "the", "big", "window"]
 for word in sentence:
     print(f"{word}: {pronouncing.phones_for_word(word.lower())}") # library needs lower()
 print()
 
-
+# Task 2.4 Write a function that returns True for slant or exact rhymes. 
 # The Chaos was taken from: https://ncf.idallen.com/english.html
 # Erledigt: Write a function are_rhymes(word1, word2) that returns
 # True for slant or exact rhymes (e.g., “skate” and “eight”) despite mismatched spellings.
@@ -78,7 +81,7 @@ def is_slant_rhyme(word1, word2):
 word1 = ""                                              # Ablage wort1 initiieren
 word2 = ""                                              # Ablage wort2 initiieren
 # eigenen lokalen Pfad in input_file eintragen oder hier direkt im NLPROC Ordner
-input_file = "the-chaos.txt"
+input_file = "assignment-01\\the-chaos.txt"
 with open(input_file, "r", encoding="utf-8") as file:
     for line in file:
         if len(line) > 1:                               # Leerzeilen überspringen
@@ -94,6 +97,6 @@ with open(input_file, "r", encoding="utf-8") as file:
                 word1 = ""                              # Ablage wort1 leeren
                 word2 = ""                              # Ablage wort2 leeren
         
-# Besp.: test für leere Liste bei tortious, Wort gibt es in CMU nicht, daher False
+# Bsp.: test für leere Liste bei tortious, Wort gibt es in CMU nicht, daher False
 # print(pronouncing.phones_for_word("tortious"))
 # print(pronouncing.search(".*tortious.*"))
