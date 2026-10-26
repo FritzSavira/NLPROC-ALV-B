@@ -29,8 +29,7 @@ print()
 # Erledigt: Write a function are_rhymes(word1, word2) that returns
 # True for slant or exact rhymes (e.g., “skate” and “eight”) despite mismatched spellings.
 # Prototyp läuft: Extract the nucleus and coda, zeigt True und False für Reimpaare an
-# To Do: Klären: was definiert slant rhyme genau
-# To Do: Ausgabe der Reime nochmal genauer ansehen: Sind das wirklich slant Reime?
+# Festlegung "slant", siehe is_slant_rhyme()
 
 def are_rhymes(word1, word2):
     """word1 und word2 sind Reime, wenn sie entweder ein exakter oder ein slant rhyme sind"""
@@ -78,6 +77,7 @@ def is_slant_rhyme(word1, word2):
     return ((nucleus1 == nucleus2 and coda1 != coda2) or 
             (nucleus1 != nucleus2 and coda1 == coda2))
 
+# main
 word1 = ""                                              # Ablage wort1 initiieren
 word2 = ""                                              # Ablage wort2 initiieren
 # eigenen lokalen Pfad in input_file eintragen oder hier direkt im NLPROC Ordner
