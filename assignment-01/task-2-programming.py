@@ -43,6 +43,8 @@ def get_nucleus_and_coda(word: str) -> tuple[str, list[str]]:
     # nucleus: AY1
     # coda: D
     phones = pronouncing.phones_for_word(word)
+    # um später Ergebnis True/False zu verstehen
+    print(phones)
 
     if not phones:
         return None, None
@@ -86,9 +88,12 @@ with open(input_file, "r", encoding="utf-8") as file:
                 word1 = end_word
             elif word2 == "":                           # letztes Wort Satz2 ablegen
                 word2 = end_word
-                print(word1, word2, are_rhymes(word1.lower(), word2.lower())) # abgelegtes Wortpaar auf Reim mit Funktion prüfen.
+                # abgelegtes Wortpaar auf Reim mit Funktion prüfen
+                print(word1, word2, are_rhymes(word1.lower(), word2.lower()))
+                print() 
                 word1 = ""                              # Ablage wort1 leeren
                 word2 = ""                              # Ablage wort2 leeren
-            
         
-       
+# Besp.: test für leere Liste bei tortious, Wort gibt es in CMU nicht, daher False
+# print(pronouncing.phones_for_word("tortious"))
+# print(pronouncing.search(".*tortious.*"))
