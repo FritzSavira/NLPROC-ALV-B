@@ -64,7 +64,7 @@ def get_nucleus_and_coda(word: str) -> tuple[str, list[str]]:
     return nucleus, coda
 
 
-def is_slant_rhyme(word1, word2):
+def is_slant_rhyme(word1, word2) -> tuple[bool, str, list[str], str, list[str]]:
     # unsere Regel für slant Reim: gleicher Nucleus und unterschiedliche Coda
     # oder unterschiedlicher Nukleus und gleiche Coda
     nucleus1, coda1 = get_nucleus_and_coda(word1)
@@ -74,8 +74,10 @@ def is_slant_rhyme(word1, word2):
     if nucleus1 is None or nucleus2 is None:
         return False
 
-    return ((nucleus1 == nucleus2 and coda1 != coda2) or 
+    is_slant = ((nucleus1 == nucleus2 and coda1 != coda2) or 
             (nucleus1 != nucleus2 and coda1 == coda2))
+    
+    return is_slant, nucleus1, coda1, nucleus2, coda2
 
 # main
 word1 = ""                                              # Ablage wort1 initiieren
