@@ -1,0 +1,97 @@
+frequency(word)
+[5(low), 2(lower), 3(lowest), 3(newer), 2(wider), 3(widest)]
+
+turn 0
+vocabulary [d, e, i, l, n, o, r, s, t, w]
+tokenized [5(l o w), 2(l o w e r), 3(l o w e s t), 3(n e w e r), 2(w i d e r), 3(w i d e s t)]
+merged 
+low: 5(lo) 5(ow)
+lower: 2(lo) 2(ow) 2(we) 2(er)
+lowest: 3(lo) 3(ow) 3(we) 3(es) 3(st)
+newer: 3(ne) 3(ew) 3(we) 3(er)
+wider: 2(wi) 2(id) 2(de) 2(er)
+widest: 3(wi) 3(id) 3(de) 3(es) 3(st)
+most frequent token 10(lo) 10(ow) 8(we) 7(er) 6(es) 6(st) 5(de) 5(id) 5(wi) 3(es) 3(ew) 3(ne) 3(st)
+
+turn 1
+vocabulary [d, e, i, lo, n, r, s, t, w]
+tokenized [5(lo w), 2(lo w e r), 3(lo w e s t), 3(n e w e r), 2(w i d e r), 3(w i d e s t)]
+merged
+low: 5(low)
+lower: 2(low) 2(we) 2(er)
+lowest: 3(low) 3(we) 3(es) 3(st)
+newer: 3(ne) 3(ew) 3(we) 3(er)
+wider: 2(wi) 2(id) 2(de) 2(er)
+widest: 3(wi) 3(id) 3(de) 3(es) 3(st)
+most frequent token 10(low) 8(we) 7(er) 6(es) 6(st) 5(de) 5(id) 5(wi) 3(es) 3(ew) 3(ne) 3(st)
+
+turn2
+vocabulary [d, e, i, low, n, r, s, t, w]
+tokenized [5(low), 2(low e r), 3(low e s t), 3(n e w e r), 2(w i d e r), 3(w i d e s t)]
+merged
+low: 5(low)
+lower: 2(lowe) 2(er)
+lowest: 3(lowe) 3(es) 3(st)
+newer: 3(ne) 3(ew) 3(we) 3(er)
+wider: 2(wi) 2(id) 2(de) 2(er)
+widest: 3(wi) 3(id) 3(de) 3(es) 3(st)
+most frequent token 7(er) 6(es) 6(st) 5(de) 5(id) 5(low) 5(lowe) 5(wi) 3(es) 3(ew) 3(ne) 3(st)
+
+turn3
+vocabulary [d, e, er, i, low, n, s, t, w]
+tokenized [5(low), 2(low er), 3(low e s t), 3(n e w er), 2(w i d er), 3(w i d e s t)]
+merged
+low: 5(low)
+lower: 2(lower)
+lowest: 3(lowe) 3(es) 3(st)
+newer: 3(ne) 3(ew) 3(wer)
+wider: 2(wi) 2(id) 2(der)
+widest: 3(wi) 3(id) 3(de) 3(es) 3(st)
+most frequent token 6(es) 6(st) 5(id) 5(low) 5(wi) 3(de) 3(ew) 3(lowe) 3(ne) 3(wer) 2(der) 2(lower)
+
+turn4
+vocabulary [d, e, es, er, i, low, n, t, w]
+tokenized [5(low), 2(low er), 3(low es t), 3(n e w er), 2(w i d er), 3(w i d es t)]
+merged
+low: 5(low)
+lower: 2(lower)
+lowest: 3(lowes) 3(est)
+newer: 3(ne) 3(ew) 3(wer)
+wider: 2(wi) 2(id) 2(der)
+widest: 3(wi) 3(id) 3(des) 3(est)
+most frequent token 6(est) 5(id) 5(low) 5(wi) 3(des) 3(ew) 3(lowes) 3(ne) 3(wer) 2(der) 2(lower)
+
+turn5
+vocabulary [d, e, est, er, i, low, n, w]
+tokenized [5(low), 2(low er), 3(low est), 3(n e w er), 2(w i d er), 3(w i d est)]
+merged
+low: 5(low)
+lower: 2(lower)
+lowest: 3(lowest)
+newer: 3(ne) 3(ew) 3(wer)
+wider: 2(wi) 2(id) 2(der)
+widest: 3(wi) 3(id) 3(dest)
+most frequent token 5(low) 5(id) 5(wi) 3(dest) 3(ew) 3(lowest) 3(ne) 3(wer) 2(der) 2(lower) 
+
+turn6
+vocabulary [e, est, er, id, low, n, w]
+tokenized [5(low), 2(low er), 3(low est), 3(n e w er), 2(w id er), 3(w id est)]
+low: 5(low)
+lower: 2(lower)
+lowest: 3(lowest)
+newer: 3(ne) 3(ew) 3(wer)
+wider: 2(wid) 2(ider)
+widest: 3(wid) 3(idest)
+most frequent token 5(low) 5(wid) 3(ew) 3(idest) 3(lowest) 3(ne) 3(wer) 2(ider) 2(lower) 
+
+final vovabulary [e, est, er, wid, low, n]
+
+
+
+
+
+
+
+
+
+
