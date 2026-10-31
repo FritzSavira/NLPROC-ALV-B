@@ -58,13 +58,13 @@ def stem(word, language):
 
     # remove prefix
     for prefix in prefixes:
-        if word.startswith(prefix):
+        if word.lower().startswith(prefix): # lower for German words
             word = word[len(prefix):]
             break # only one rule applyed per word
 
     # Remove suffixes
     for suffix in suffixes:
-        if word.endswith(suffix):
+        if word.lower().endswith(suffix):
             word = word[:-len(suffix)]
             break
 
@@ -82,6 +82,7 @@ words_german = [
 ]
 
 # Apply English rules
+print("\nApply on test words")
 print("English stemming:")
 for word in words_english:
     print(word, "->", stem(word, "english"))
