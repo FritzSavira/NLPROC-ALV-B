@@ -1,58 +1,49 @@
 # Genutzte Ressourcen: https://towardsdatascience.com/byte-pair-encoding-for-beginners-708d4472c0c7/
+# und https://arxiv.org/pdf/1508.07909
+
+import collections
+import re
+
+# corpus
+vocab = {'l o w </w>' : 5,
+         'l o w e r </w>' : 2,
+         'l o w e s t </w>' : 3,
+         'n e w e r </w>' : 3,
+         'w i d e r </w>' : 2,
+         'w i d e s t </w>' : 3}
+
+# print corpus
+print("print corpus")
+for word, freq in vocab.items():
+    word_list = word.split()
+    print(word_list, freq)
+
+def get_stats(vocab):
+    pairs = collections.defaultdict(int)
+    for word, freq in vocab.items():
+        elements = word.split()
+        for i in range(len(elements)-1): # -1, weil i noch einen Nachfolger haben muss.
+            pairs[elements[i], elements[i+1]] += freq
+    return pairs
+
+# print pairs
+print()
+print("print pairs")
+print(dict(get_stats(vocab)))
 
 
-corpus = ["low", "low", "low", "low", "low",
-        "lower", "lower",
-        "lowest", "lowest", "lowest",
-        "newer", "newer", "newer",
-        "wider", "wider",
-        "widest", "widest", "widest",]
+def merge_vocab(pair, v_in):
+    v_out = {}
+    bigram = re.escape(' '.join(pair))
+    p = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
+    for word in v_in:
+        w_out = p.sub(''.join(pair), word)
+        v_out[w_out] = v_in[word]
+    return v_out
 
-# Anzahl Merges zur Ermittlung des Vokabulars
-merges = 4
+print()
+print("merge_vocab")
+print(merge_vocab(('l', 'o'), vocab))
+print(merge_vocab(('e','s'), {'n we st </w>': 1}))
 
-def init_vocabulary(corpus):
-    vocabulary = {}
-    for word in corpus:
-        for token in word:
-            vocabulary[token] = vocabulary.pop(token, 0) + 1
-    vocabulary = dict(sorted(vocabulary.items()))       # Nach Schlüssel = token sortieren
-    return vocabulary
-            
-# Zerlege Worte des Korpus in einzelne Buchstaben
-def init_corpus(corpus):
-    corpus_streched = []
-    for word in corpus:
-        word_streched = ""
-        for token in word:
-            word_streched = word_streched+token+" "
-        word_streched = word_streched[:-1]              # Leerzeichen am Ende d. Wortes weg
-        corpus_streched.append(word_streched)        
-    return corpus_streched            
-            
-def merge_token(tokenized_corpus):
-    for word in tokenized_corpus:
-        # merge benachbarte token
-        word_merged = ""
-        new_token = ""
-        i = 0
-        for token in word.split():
-            new_token = token
-            word_merged = word_merged+new_token
-            
-            print(f"{i} token:{token} word_merged:{word_merged}")
-            i = i+1
-             
-    
-    
-    # zähle gemergte token-kombi
-    # token-kombi mit größer Anzahl = neuer token
-    # aktualisiere vocabulary
-    return
 
-# main            
-vocabulary = init_vocabulary(corpus)
-print(f"Initial vocabulary {vocabulary}")            
-tokenized_corpus = init_corpus(corpus)      
-print(f"tokenized corpus {tokenized_corpus}")
-merge_token(tokenized_corpus)    
