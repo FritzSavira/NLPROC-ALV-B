@@ -6,15 +6,21 @@ import re
 import json
 
 # Anzahl Iterationen
-num_merges = 6
-corpus_file = "assignment-02\\corpora-task-1.json"
-
+num_merges = 13
+corpus_file = "assignment-02\\corpora-de.json"
+unknown_file = "assignment-02\\unknown-de.txt"
 
 def read_corpora(input_file):
     vocab = {}
     with open(input_file, "r", encoding="utf-8") as file:
         vocab = json.load(file)
         return vocab
+
+def read_unknown(input_file):
+    with open(input_file, "r", encoding="utf-8") as file:
+        unknown_text = file.read()
+        return unknown_text
+
 
 # Häufigkeit benachbarter (Trenner=" ") Elemente zählen
 def get_stats(vocab):
@@ -88,14 +94,60 @@ def learn_bpe(vocab, num_merges):
         print(f"token_list {token_list}")
     return vocab, token_list
 
+
+
+# Mit KI-Unterstützung generierter Code -- Anfang
+
+# Ein Wort mit Hilfe der Token-Liste in Tokens zerlegen
+def segment_word(word, token_list):
+    tokens = []      # hier sammeln wir die gefundenen Tokens
+    position = 0     # aktuelle Stelle im Wort
+
+    # So lange wiederholen, bis das ganze Wort zerlegt ist
+    while position < len(word):
+        found_token = None
+
+        # Vom längstmöglichen Stück zum kürzesten probieren
+        for end in range(len(word), position, -1):
+            piece = word[position:end]
+            if piece in token_list:
+                found_token = piece
+                break    # längstes passendes Token gefunden, Suche beenden
+
+        # Kein Token passt: einzelnes Zeichen als Token nehmen
+        if found_token is None:
+            found_token = word[position]
+
+        tokens.append(found_token)
+        position = position + len(found_token)   # hinter dem Token weitermachen
+
+    return tokens
+
+
+# Einen ganzen Korpus (Text) segmentieren
+def segment_corpus(text, token_list):
+    result = []
+    words = text.split()            # Text an Leerzeichen in Wörter teilen
+    for word in words:
+        word_tokens = segment_word(word, token_list)
+        result.append(" ".join(word_tokens))   # Tokens mit Leerzeichen verbinden
+    return result
+# Mit KI-Unterstützung generierter Code -- Ende
+
+
+
 # Hauptroutine
+# Token-Liste, basierend auf Korpus erstellen
 print(f"num_merges: {num_merges}")            # debug print
 vocab = read_corpora(corpus_file)
 print(f"corpus: {vocab}")
 vocab, final_token_list = learn_bpe(vocab, num_merges)
 print()                                       # debug print
-print(f"final_token_list {final_token_list}") # debug print   
-   
+print(f"final_token_list {final_token_list}") # debug print 
 
-
+# BPE Encoding auf unbekannten Korpus anwenden
+# Beispielaufruf
+unknown_text = read_unknown(unknown_file)
+segmented = segment_corpus(unknown_text, final_token_list)
+print(f"segmented: {segmented}")
 
