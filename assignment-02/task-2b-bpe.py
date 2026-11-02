@@ -6,8 +6,8 @@ import re
 import json
 
 # Anzahl Iterationen
-num_merges = 17
-corpus_file = "assignment-02\\corpora-de.json"
+num_merges = 6
+corpus_file = "assignment-02\\corpora-task-1.json"
 
 
 def read_corpora(input_file):
@@ -16,31 +16,33 @@ def read_corpora(input_file):
         vocab = json.load(file)
         return vocab
 
-
-
-print("***")                                     # debug print
-print(f"num_merges: {num_merges}")                    # debug print
-
-# Zählt Häufigkeit benachbarter (Trenner=" ") Elemente
+# Häufigkeit benachbarter (Trenner=" ") Elemente zählen
 def get_stats(vocab):
     pairs = collections.defaultdict(int)
     for word, freq in vocab.items():
         elements = word.split()
         for i in range(len(elements)-1): # -1, weil i noch einen Nachfolger haben muss.
             pairs[elements[i], elements[i+1]] += freq
-    #print(f"pairs: {dict(pairs)}")        # debug print
     return pairs
 
 # Benachbarte Elemente verschmelzen, basierend auf den Elementen im Korpus
-def merge_vocab(pair, v_in):
-    v_out = {}
-    bigram = re.escape(' '.join(pair))
-    p = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
-    for word in v_in:
-        w_out = p.sub(''.join(pair), word)
-        v_out[w_out] = v_in[word]
-    print(f"v_out {v_out}")     # debug print
-    return v_out
+def merge_vocab(pair, vocab_in):
+    vocab_out = {}
+    # Suchtext
+    search_text = ' '.join(pair)
+    # Ersatztext
+    replace_text = ''.join(pair)
+    # Sonderzeichen maskieren
+    escaped_search_text = re.escape(search_text)
+    # Suchmuster
+    pair_pattern = re.compile(r'(?<!\S)' + escaped_search_text + r'(?!\S)')
+
+    for word, frequency in vocab_in.items():
+        new_word = pair_pattern.sub(replace_text, word)
+        vocab_out[new_word] = frequency
+
+    print(f"vocab_out {vocab_out}")     # debug print
+    return vocab_out
 
 # Beste Paarung, zuerst im Alphabet
 def best_alphabetical(pairs):
@@ -84,12 +86,13 @@ def learn_bpe(vocab, num_merges):
         vocab = merge_vocab(best, vocab) 
         token_list = current_token_list(vocab)
         print(f"token_list {token_list}")
-    return token_list
+    return vocab, token_list
 
 # Hauptroutine
+print(f"num_merges: {num_merges}")            # debug print
 vocab = read_corpora(corpus_file)
 print(f"corpus: {vocab}")
-final_token_list = learn_bpe(vocab, num_merges)
+vocab, final_token_list = learn_bpe(vocab, num_merges)
 print()                                       # debug print
 print(f"final_token_list {final_token_list}") # debug print   
    
