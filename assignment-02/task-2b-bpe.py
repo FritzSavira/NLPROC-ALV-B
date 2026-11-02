@@ -18,8 +18,8 @@ import json
 
 # Anzahl Iterationen
 num_merges = 17
-corpus_file = "assignment-02\\corpora-de.json"
-unknown_file = "assignment-02\\unknown-de.txt"
+corpus_file = "corpora-en.json"
+unknown_file = "unknown-de.txt"
 
 def read_corpora(input_file):
     vocab = {}

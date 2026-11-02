@@ -25,7 +25,7 @@
 # ge    gesagt -> sagt
 
 # test words English:
-# playing (trus), played (true), cats (true), boxes (true), byes (false), dogs(true), 
+# playing (true), played (true), cats (true), boxes (true), byes (false), dogs(true), 
 # his (false), walking(true), studies (true), sing(false), news(false), 
 # misunderstand (true), disagree (true), disturb (false), mister (false)
 # unhappy (true), until (false)
@@ -33,7 +33,7 @@
 # test words German:
 # unglücklich (true), verkaufen (true), gesagt (true), zahlen (true), Hunde (true),
 # Heiterkeit (true), Autos (true), kannst (true), unklar (true), Gesicht (false),
-# gestern (false), Ungeheuer (un), Universität (false), Keks (false), "Fenster",
+# gestern (false), Ungeheuer (false), Universität (false), Keks (false),
 # Verb (false), verbinden(true), Ast (false), Keule (false), verkaufst (true)
 
 
@@ -53,7 +53,7 @@ def stem(word, language):
     elif language == "german":
         prefixes = prefixes_german
         suffixes = suffixes_german
-    else:          # other language s could be added later
+    else:          # other languages could be added later
         return word
 
     # remove prefix
@@ -78,7 +78,7 @@ words_english = ["playing", "played", "walking", "sing", "quickly", "cats", "dog
 words_german = [
     "unglücklich", "verkaufen", "gesagt", "zahlen", "Hunde", "Heiterkeit", "Autos",
     "kannst", "unklar",  "Gesicht", "gestern", "Ungeheuer", "Universität", "Keks",
-    "Fenster", "Verb", "verbinden", "Ast", "Keule", "verkaufst"
+    "Verb", "verbinden", "Ast", "Keule", "verkaufst"
 ]
 
 # Apply English rules
