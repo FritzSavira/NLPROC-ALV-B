@@ -1,12 +1,23 @@
-# Genutzte Ressourcen: https://towardsdatascience.com/byte-pair-encoding-for-beginners-708d4472c0c7/
-# und https://arxiv.org/pdf/1508.07909
+# Task 2 b) Byte Pair Encoding (BPE)
+
+'''
+Genutzte Ressourcen:
+Umsetzung Code und Programmstruktuer:
+https://towardsdatascience.com/byte-pair-encoding-for-beginners-708d4472c0c7/
+
+Fachliche und wissenschaftliche Quelle
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+2016. Neural Machine Translation of Rare Words with Subword Units.
+arXiv preprint arXiv:1508.07909v5. https://arxiv.org/abs/1508.07909
+
+'''
 
 import collections
 import re
 import json
 
 # Anzahl Iterationen
-num_merges = 13
+num_merges = 17
 corpus_file = "assignment-02\\corpora-de.json"
 unknown_file = "assignment-02\\unknown-de.txt"
 
