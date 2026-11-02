@@ -6,7 +6,7 @@ import re
 import json
 
 # Anzahl Iterationen
-num_merges = 20
+num_merges = 17
 corpus_file = "assignment-02\\corpora-de.json"
 
 
@@ -76,26 +76,22 @@ def learn_bpe(vocab, num_merges):
     for i in range(num_merges):
         print()         # debug print
         print("i:", i)  # debug print
-        # Zählt Häufigkeit benachbarter, durch " " getrennte Elemente
+        # Häufigkeit benachbarter, durch " " getrennte Elemente, zählen
         pairs = get_stats(vocab)         
-        # Legt die häufigste Paarung (alphabetisch) in best ab
+        # Häufigste Paarung (alphabetisch) in best ablegen
         best, all_bests = best_alphabetical(pairs) 
-        # Verschmilzt die beiden häufigsten Elemente, gibt das Ergebnis als neuen Korpus zurück
+        # Häufigsten Elemente verschmelzen, gibt das Ergebnis als neuen Korpus zurück
         vocab = merge_vocab(best, vocab) 
         token_list = current_token_list(vocab)
         print(f"token_list {token_list}")
-    print()                                       # debug print
-    print(f"final_token_list {token_list}") # debug print   
     return token_list
 
-
-
-
 # Hauptroutine
-
 vocab = read_corpora(corpus_file)
 print(f"corpus: {vocab}")
 final_token_list = learn_bpe(vocab, num_merges)
+print()                                       # debug print
+print(f"final_token_list {final_token_list}") # debug print   
    
 
 
