@@ -1,0 +1,50 @@
+The following files are part of this release of TIGER 2.2.doc:
+
+* authors.tsv --	table of tab-separated values,
+					first column: DocumentID,
+					second column: author's name,
+					third column: author's gender,
+					fourth column: second author's name (if exists),
+					fifth column: second author's gender (if exists),
+					sixth column: third author's name (if exists),
+					seventh column: third author's gender (if exists),
+					NOTE: rows ordered by DocumentID
+
+* documents.tsv --	table of tab-separated values,
+					first column: DocumentID,
+					second column: sentence number,
+					NOTE: rows ordered by sentence number
+
+* documents_notes.tsv --	table of tab-separated values,
+						first column: DocumentID,
+						second column: category of note (COLLECTION, OTHER),
+						third column:
+							for category COLLECTION: type/heading of COLLECTION document,
+							for category OTHER: description,
+						NOTE: rows ordered by DocumentID
+											
+* documents_train.tsv --	list of DocumentIDs for the training part of the treebank					
+* documents_dev.tsv --	list of DocumentIDs for the development part of the treebank
+* documents_test.tsv --	list of DocumentIDs for the test part of the treebank
+
+* origin_md.tsv --	table of tab-separated values,
+					first column: OriginID,
+					second column: short metadata string,
+					thrid column: long metadata string,
+					NOTE: rows ordered by OriginID,
+					Origin metadata taken from Negra export format of TIGER Corpus 1,
+					TIGER Corpus 2.1 and an old work file
+
+* README -- this file
+
+* sentences.tsv --	table of tab-separated values,
+					first column: DocumentID,
+					second column: sentence number,
+					third column: sentence type (Header, Body, Meta, --),
+					NOTE: sentences from documents of type COLLECTION are not annotated with types and received '--',
+					rows ordered by DocumentID
+					
+NOTE: Documents of type COLLECTION contain several short but independent news features in one document.
+
+Read about this dataset in: 
+Falenska, A. and Eckart, K. and Kuhn, J. (2018). Moving TIGER beyond Sentence-Level. Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018), Miyazaki, Japan.
