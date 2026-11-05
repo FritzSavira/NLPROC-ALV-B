@@ -10,3 +10,6 @@ desktop.ini
 # Vorlesungs-Skripte
 NLPROC-ALV-B-*.pdf
 Intro-NLP-*.pdf
+
+# TIGER-Korpus (228 MB, über GitHub-Limit; Download: https://www.ims.uni-stuttgart.de/en/research/resources/corpora/tiger/)
+assignment-03/tigercorpus-2.2.xml/
