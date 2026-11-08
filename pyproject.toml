@@ -1,0 +1,20 @@
+[project]
+name = "nlproc-alv-b"
+version = "0.1.0"
+description = "Aufgaben zur Vorlesung NLPROC-ALV-B"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "jupyterlab>=4",
+    # jupyter-ai-magics 2.x braucht langchain < 0.4 und damit langchain-core < 1.
+    "jupyter-ai-magics==2.31.7",
+    # Ab Version 3 verlangt dieses Paket langchain-core >= 1 (Konflikt mit den Magics).
+    "langchain-google-genai<3",
+    "python-dotenv",
+    "pandas",
+    # Parser fuer pd.read_xml
+    "lxml",
+    "pronouncing",
+]
+
+[tool.uv]
+package = false
