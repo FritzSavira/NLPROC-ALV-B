@@ -20,3 +20,14 @@ assignment-03/tiger_release_aug07.corrected.16012013.xml
 
 # Jupyter-Checkpoints
 .ipynb_checkpoints/
+
+# Jupyter-Startskript
+start-jupyter.cmd
+uv.lock
+
+# Gemini
+gemini-models.ipynb
+
+
+# Pandas Cheat-Sheet
+Pandas_DataFrame_Notes.pdf
