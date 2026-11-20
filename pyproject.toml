@@ -14,6 +14,7 @@ dependencies = [
     # Parser fuer pd.read_xml
     "lxml",
     "pronouncing",
+    "nltk>=3.10.4",
 ]
 
 [tool.uv]
