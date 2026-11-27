@@ -15,7 +15,14 @@ dependencies = [
     "lxml",
     "pronouncing",
     "nltk>=3.10.4",
+    "odenet",
+    # odenet importiert pkg_resources; das fehlt in uv-Umgebungen und wurde in setuptools 82 entfernt.
+    "setuptools<82",
 ]
 
 [tool.uv]
 package = false
+
+# "odenet" auf PyPI ist ein fremdes Paket (ODENet von Y.Ge) - OdeNet der h_da kommt von GitHub.
+[tool.uv.sources]
+odenet = { git = "https://github.com/hdaSprachtechnologie/odenet" }
